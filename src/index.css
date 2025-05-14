@@ -1,4 +1,9 @@
 @import "tailwindcss";
+@plugin "daisyui";
+
+:root {
+  font-family: "Space Grotesk", sans-serif;
+}
 
 .container {
   margin: 0 auto;

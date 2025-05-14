@@ -1,5 +1,6 @@
 import Navbar from "../components/Navbar"
 import SlideBar from "../components/Slidebar"
+import Footer from "../components/Footer"
 
 const MainLayout = ({ children }) => {
     return (
@@ -8,10 +9,13 @@ const MainLayout = ({ children }) => {
                 <Navbar />
                 <div className="flex">
                     <div className="slideBar relative hidden xl:block shadow-md w-[15%]">
-                        <SlideBar />
+                        <div className="fixed w-[15%] bg-[#f1f1f1] px-4 pt-20 h-screen">
+                            <SlideBar />
+                        </div>
                     </div>
-                    <div className="childrenComponent bg-white pt-20 p-4 w-[100%] xl:w-[85%]">
+                    <div className="childrenComponent bg-white pt-17 p-4 w-[100%] xl:w-[85%]">
                         {children}
+                        <Footer />
                     </div>
                 </div>
             </div>
