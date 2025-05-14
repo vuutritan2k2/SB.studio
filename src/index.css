@@ -3,3 +3,7 @@
 .container {
   margin: 0 auto;
 }
+
+.text-stroke {
+  -webkit-text-stroke: 2px red;
+}

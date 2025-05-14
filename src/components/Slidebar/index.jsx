@@ -1,10 +1,11 @@
 import React from 'react'
 import logo from '../../assets/logo.png'
+import { FaHome } from "react-icons/fa";
 
 const SlideBar = () => {
   return (
     <>
-      <div className='slideBar p-4 relative h-screen'>
+      <div className='slideBar p-4 fixed w-[15%] h-screen pt-20 bg-[#f1f1f1]'>
         {/* Logo */}
         <div className='logoSlidebar flex items-center justify-between bg-white p-2 rounded-md shadow-xl'>
           <h1 className='font-thin'>Sb.Studio</h1>
@@ -13,7 +14,7 @@ const SlideBar = () => {
         {/* Tabs */}
         <ul className='flex flex-col w-full gap-2 my-4'>
           <h1>Menu Sunben</h1>
-          <li className='p-2 rounded-md bg-[#fff] shadow-md'>Trang Chu</li>
+          <li className='p-2 rounded-md bg-[#fff] shadow-md flex gap-2 items-center'><FaHome />Trang Chủ</li>
           <li className='p-2 rounded-md bg-[#fff] shadow-md'>Thuc Don</li>
         </ul>
         {/* Info Account */}
