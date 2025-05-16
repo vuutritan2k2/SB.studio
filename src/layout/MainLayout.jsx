@@ -13,7 +13,7 @@ const MainLayout = ({ children }) => {
                             <SlideBar />
                         </div>
                     </div>
-                    <div className="childrenComponent bg-white pt-17 p-4 w-[100%] xl:w-[85%]">
+                    <div className="childrenComponent bg-white pt-20 p-4 w-[100%] xl:w-[85%]">
                         {children}
                         <Footer />
                     </div>

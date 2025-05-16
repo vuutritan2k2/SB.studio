@@ -18,9 +18,9 @@ const SlideBar = () => {
         {/* Tabs */}
         <ul className='flex flex-col w-full gap-2 my-4'>
           <h1>Menu Sunben</h1>
-          <NavLink to='/' className={({ isActive }) => `p-2 rounded-md ${isActive ? 'bg-white shadow-md' : 'hover:bg-[#ccc]'} duration-500  flex gap-2 items-center`}><FaHome />Trang Chủ</NavLink>
-          <NavLink to='/food' className={({ isActive }) => `p-2 rounded-md ${isActive ? 'bg-white shadow-md' : 'hover:bg-[#ccc]'} duration-500 flex gap-2 items-center`}><IoFastFoodOutline />Thực Đơn</NavLink>
-          <NavLink to='/about' className={({ isActive }) => `p-2 rounded-md ${isActive ? 'bg-white shadow-md' : 'hover:bg-[#ccc]'} duration-500 flex gap-2 items-center`}><CiImageOn />Hình Ảnh</NavLink>
+          <NavLink to='/' className={({ isActive }) => `p-2 rounded-md ${isActive ? 'bg-white shadow-md' : 'hover:bg-[#ccc] hover:duration-700'}  flex gap-2 items-center`}><FaHome />Trang Chủ</NavLink>
+          <NavLink to='/food' className={({ isActive }) => `p-2 rounded-md ${isActive ? 'bg-white shadow-md' : 'hover:bg-[#ccc] hover:duration-700'} flex gap-2 items-center`}><IoFastFoodOutline />Thực Đơn</NavLink>
+          <NavLink to='/library' className={({ isActive }) => `p-2 rounded-md ${isActive ? 'bg-white shadow-md' : 'hover:bg-[#ccc] hover:duration-700'} flex gap-2 items-center`}><CiImageOn />Hình Ảnh</NavLink>
         </ul>
         {/* Info Account */}
         <div className='infoAccount font-thin absolute bottom-10 left-2 flex gap-3 items-center'>

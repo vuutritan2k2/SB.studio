@@ -10,13 +10,13 @@ export default function Banner3D() {
       <section
         className="bg-[#f1f1f1] rounded-2xl relative flex h-150 overflow-hidden justify-center"
       >
-        <div className="absolute z-1 h-full w-full backdrop-blur-md flex flex-col md:flex-row items-center group duration-500 hover:xl:backdrop-blur-none">
-          <div className="infoTittle w-[100%] md:w-[50%] px-5 md:px-20 text-[50px] group-hover:xl:hidden duration-1000">
+        <div className="absolute z-1 h-full w-full backdrop-blur-md flex flex-col md:flex-row items-center group hover:duration-2000 hover:xl:backdrop-blur-none">
+          <div className="infoTittle w-[100%] md:w-[50%] px-5 md:px-20 text-[50px] group-hover:xl:-translate-x-[50%] duration-1000">
             <p className="font-thin">Welcome,</p>
             <p className="text-red-400 font-bold">Sunsun</p>
             <p>to Sb.studio</p>
           </div>
-          <div className="model3D w-[100%] md:w-[50%] group-hover:xl:translate-x-[50%] duration-700 h-full">
+          <div className="model3D w-[100%] md:w-[50%] group-hover:xl:-translate-x-[50%] duration-700 h-full">
             <Canvas camera={{ position: [12, 0, 0], fov: 10 }}>
               <ambientLight intensity={3} />
               <directionalLight position={[5, 5, 5]} intensity={10} />
