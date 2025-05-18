@@ -9,19 +9,19 @@ import LibraryPage from './pages/LibraryPage'
 import useZustand from './zustand/useZustand'
 
 function App() {
-  const nagative = useNavigate()
-  const fetchUserInfo = useZustand((state) => state.fetchUserInfo);
-  const unauthorized = useZustand((state) => state.unauthorized);
+  // const nagative = useNavigate()
+  // const fetchUserInfo = useZustand((state) => state.fetchUserInfo);
+  // const unauthorized = useZustand((state) => state.unauthorized);
 
-  useEffect(() => {
-     fetchUserInfo();
-  }, [fetchUserInfo])
+  // useEffect(() => {
+  //    fetchUserInfo();
+  // }, [fetchUserInfo])
 
-  useEffect(() => {
-    if (unauthorized) {
-      nagative('/login')
-    }
-  }, [unauthorized])
+  // useEffect(() => {
+  //   if (unauthorized) {
+  //     nagative('/login')
+  //   }
+  // }, [unauthorized])
 
   return (
     <Routes>
