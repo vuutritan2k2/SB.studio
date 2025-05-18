@@ -21,12 +21,12 @@ const LoginPage = () => {
     })
 
     return (
-        <section className='w-screen bg-[#f1f1f1] flex items-center justify-center'>
+        <section className='w-screen h-screen bg-[#f1f1f1] flex items-center justify-center'>
             <form className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4" onSubmit={formik.handleSubmit}>
                 <legend className="fieldset-legend">Đăng Nhập</legend>
 
                 <label className="label">Số điện thoại</label>
-                <input type="phone" className="input" placeholder="Số điện thoại..."
+                <input type="phone" className="input !text-[16px]" placeholder="Số điện thoại..."
                     name="phone"
                     value={formik.values.phone}
                     onBlur={formik.handleBlur}
@@ -35,7 +35,7 @@ const LoginPage = () => {
                 <p>{formik.touched.fullName && Boolean(formik.errors.fullName)}</p>
 
                 <label className="label">Mật Khẩu</label>
-                <input type="password" className="input" placeholder="Mật khẩu..."
+                <input type="password" className="input !text-[16px]" placeholder="Mật khẩu..."
                     name="password"
                     value={formik.values.password}
                     onBlur={formik.handleBlur}
