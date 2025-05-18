@@ -5,6 +5,7 @@ import CardItem from '../../components/CardItem'
 import { IoAdd } from "react-icons/io5";
 import Banner3D from '../../components/Banner3D/banner3d';
 import CardImage from '../../components/CardImage';
+import AboutUsPage from '../AboutUs/index'
 
 const HomePage = () => {
   // Bước 1: Ngày bắt đầu
@@ -60,12 +61,15 @@ const HomePage = () => {
         </div>
       </section> */}
       {/* Popular Thuc Don */}
-      {/* <div className='my-5'>
+      <div className='my-5'>
         <h1 className='mb-5 text-center uppercase font-bold'>Thực Đơn Sb.studio có gì...</h1>
         <div className='grid grid-cols-2 xl:grid-cols-4 gap-4'>
           <CardItem />
         </div>
-      </div> */}
+      </div>
+      <section>
+        <AboutUsPage/>
+      </section>
     </>
   )
 }

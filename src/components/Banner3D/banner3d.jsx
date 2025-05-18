@@ -2,9 +2,11 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import Model3D from "./model3d";
 import { motion } from "framer-motion";
+import useZustand from '../../zustand/useZustand'
 
 export default function Banner3D() {
-
+  const userName = useZustand((state) => state.userInfo?.name);
+  
   return (
     <div className="">
       <section
@@ -13,7 +15,7 @@ export default function Banner3D() {
         <div className="absolute z-1 h-full w-full backdrop-blur-md flex flex-col md:flex-row items-center group hover:duration-2000 hover:xl:backdrop-blur-none">
           <div className="infoTittle w-[100%] md:w-[50%] px-5 md:px-20 text-[50px] group-hover:xl:-translate-x-[50%] duration-1000">
             <p className="font-thin">Welcome,</p>
-            <p className="text-red-400 font-bold">Sunsun</p>
+            <p className="text-red-400 font-bold">{userName}</p>
             <p>to Sb.studio</p>
           </div>
           <div className="model3D w-[100%] md:w-[50%] group-hover:xl:-translate-x-[50%] duration-700 h-full">

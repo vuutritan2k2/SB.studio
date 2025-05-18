@@ -14,15 +14,22 @@
     "@react-three/fiber": "^9.1.2",
     "@studio-freight/react-lenis": "^0.0.47",
     "@tailwindcss/vite": "^4.1.6",
+    "@tanstack/react-query": "^5.76.1",
+    "axios": "^1.9.0",
+    "formik": "^2.4.6",
     "framer-motion": "^12.11.0",
     "i": "^0.3.7",
+    "js-cookie": "^3.0.5",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-icons": "^5.5.0",
     "react-router": "^7.6.0",
     "react-router-dom": "^7.6.0",
     "react-three": "^0.9.7",
-    "tailwindcss": "^4.1.6"
+    "react-toastify": "^11.0.5",
+    "tailwindcss": "^4.1.6",
+    "yup": "^1.6.1",
+    "zustand": "^5.0.4"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",

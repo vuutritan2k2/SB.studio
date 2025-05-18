@@ -4,8 +4,11 @@ import { FaHome } from "react-icons/fa";
 import { IoFastFoodOutline } from "react-icons/io5";
 import { CiImageOn } from "react-icons/ci";
 import { NavLink } from 'react-router-dom'
+import useZustand from '../../zustand/useZustand';
 
 const SlideBar = () => {
+
+  const userInfo = useZustand((state) => state.userInfo); // Lấy ra user id từ fetchUserInfo ở Zustand
 
   return (
     <>
@@ -30,7 +33,7 @@ const SlideBar = () => {
             </div>
           </div>
           <div className="div">
-            <p>Vưu Trí Tấn</p>
+            <p>{userInfo?.name}</p>
             <p>0704539076</p>
           </div>
         </div>

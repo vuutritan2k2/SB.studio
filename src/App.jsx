@@ -6,22 +6,27 @@ import FoodPage from './pages/FoodPage'
 import LoginPage from './pages/Login'
 import { useEffect, useState } from 'react'
 import LibraryPage from './pages/LibraryPage'
+import useZustand from './zustand/useZustand'
 
 function App() {
-  // Check thông tin user
-  // const [isUser, setIsUser] = useState(false)
-  // const nagative = useNavigate()
+  const nagative = useNavigate()
+  const fetchUserInfo = useZustand((state) => state.fetchUserInfo);
+  const unauthorized = useZustand((state) => state.unauthorized);
 
-  // useEffect(() => {
-  //   if (!isUser) {
-  //     nagative('/login')
-  //   }
-  // },[])
+  useEffect(() => {
+     fetchUserInfo();
+  }, [fetchUserInfo])
+
+  useEffect(() => {
+    if (unauthorized) {
+      nagative('/login')
+    }
+  }, [unauthorized])
 
   return (
     <Routes>
       <Route path="/" element={<MainLayout><HomePage /></MainLayout>} />
-      <Route path="/login" element={<LoginPage/>} />
+      <Route path="/login" element={<LoginPage />} />
       <Route path="/food" element={<MainLayout><FoodPage /></MainLayout>} />
       <Route path="/library" element={<MainLayout><LibraryPage /></MainLayout>} />
     </Routes>
