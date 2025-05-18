@@ -1,7 +1,7 @@
 import axios from 'axios';
 import queryString from 'querystring';
 
-export const baseURL = 'http://localhost:3001/'; // Địa chỉ API của bạn
+export const baseURL = 'https://sb-studio-backend.onrender.com/'; // Địa chỉ API của bạn
 
 const axiosClient = axios.create({
   baseURL,
