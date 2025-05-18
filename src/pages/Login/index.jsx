@@ -21,7 +21,7 @@ const LoginPage = () => {
     })
 
     return (
-        <section className='w-screen h-screen bg-[#f1f1f1] flex items-center justify-center'>
+        <section className='w-screen bg-[#f1f1f1] flex items-center justify-center'>
             <form className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4" onSubmit={formik.handleSubmit}>
                 <legend className="fieldset-legend">Đăng Nhập</legend>
 
