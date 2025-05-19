@@ -35,7 +35,10 @@ const SlideBar = () => {
           <div className="div">
             <p>{userInfo?.name}</p>
             <p>{userInfo?.phone}</p>
-            <button classname="btn" onClick={() => {localStorage.removeItem('accesstoken')}}>Đăng Xuất</button>
+            <button className="btn" onClick={() => {
+              localStorage.clear(); // hoặc localStorage.removeItem('key') nếu chỉ muốn xóa 1 mục cụ thể
+              window.location.reload(); // reload lại trang
+            }}>Đăng Xuất</button>
           </div>
         </div>
       </div>
