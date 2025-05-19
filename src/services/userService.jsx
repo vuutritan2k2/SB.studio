@@ -22,6 +22,7 @@ export function useLogin() {
     mutationKey: ['login'],
     mutationFn: login,
     onSuccess: (data) => {
+      localStorage.setItem("accesstoken", data.accesstoken)
       getInfo(data)
       toast.success('Đăng nhập thành công !', {
         position: 'top-center',
