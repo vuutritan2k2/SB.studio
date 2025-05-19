@@ -3,10 +3,10 @@ import logo from '../../assets/logo.png'
 import { LuHeart } from "react-icons/lu";
 import { Link } from 'react-router';
 
-const CardImage = ({ image }) => {
+const CardImage = ({ image, isProfilePage }) => {
   return (
     <div className='cardImage rounded-xl group bg-white border border-[#f1f1f1] p-5'>
-      {image.userId ?
+      {!isProfilePage ?
         <div className="flex mb-5 items-center gap-4">
           <div className="avatar">
             <div className="w-12 rounded-full">
