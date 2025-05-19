@@ -1,5 +1,5 @@
 import React from 'react'
-import sunbenbanner from '../../../public/sunben-banner.png'
+import sunbenbanner from '../../assets/sunben-banner.png'
 
 const AboutUsPage = () => {
   const couple = [
