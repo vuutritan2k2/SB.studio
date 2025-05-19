@@ -16,7 +16,7 @@ const axiosClient = axios.create({
 // 2. Request interceptor: thêm access token vào header
 axiosClient.interceptors.request.use(
   config => {
-    const token = localStorage.getItem('accessToken');
+    const token = localStorage.getItem('accesstoken');
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
