@@ -35,6 +35,7 @@ const SlideBar = () => {
           <div className="div">
             <p>{userInfo?.name}</p>
             <p>{userInfo?.phone}</p>
+            <button classname="btn" onClick={() => {localStorage.removeItem('accesstoken')}}>Đăng Xuất</button>
           </div>
         </div>
       </div>
