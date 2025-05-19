@@ -29,12 +29,12 @@ const SlideBar = () => {
         <div className='infoAccount font-thin absolute bottom-10 left-2 flex gap-3 items-center'>
           <div className="avatar">
             <div className="w-12 rounded-full">
-              <img src={logo} />
+              <img src={userInfo?.avatar} />
             </div>
           </div>
           <div className="div">
             <p>{userInfo?.name}</p>
-            <p>0704539076</p>
+            <p>{userInfo?.phone}</p>
           </div>
         </div>
       </div>

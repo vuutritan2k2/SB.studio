@@ -6,6 +6,7 @@ import { IoAdd } from "react-icons/io5";
 import Banner3D from '../../components/Banner3D/banner3d';
 import CardImage from '../../components/CardImage';
 import AboutUsPage from '../AboutUs/index'
+import { useGetGallery } from '../../services/galleryService';
 
 const HomePage = () => {
   // Bước 1: Ngày bắt đầu
@@ -21,6 +22,9 @@ const HomePage = () => {
 
   // Bước 4: Đổi mili-giây thành số ngày (1 ngày = 86400000ms)
   const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)).toLocaleString().split("");
+
+  // const {galleryList, loadingGalleryList} = useGetGallery()
+  // console.log('galleryList', galleryList)
 
   return (
     <>
@@ -61,12 +65,12 @@ const HomePage = () => {
         </div>
       </section> */}
       {/* Popular Thuc Don */}
-      <div className='my-5'>
+      {/* <div className='my-5'>
         <h1 className='mb-5 text-center uppercase font-bold'>Thực Đơn Sb.studio có gì...</h1>
         <div className='grid grid-cols-2 xl:grid-cols-4 gap-4'>
           <CardItem />
         </div>
-      </div>
+      </div> */}
       <section>
         <AboutUsPage/>
       </section>
