@@ -24,6 +24,7 @@ const SlideBar = () => {
           <NavLink to='/' className={({ isActive }) => `p-2 rounded-md ${isActive ? 'bg-white shadow-md' : 'hover:bg-[#ccc] hover:duration-700'}  flex gap-2 items-center`}><FaHome />Trang Chủ</NavLink>
           <NavLink to='/food' className={({ isActive }) => `p-2 rounded-md ${isActive ? 'bg-white shadow-md' : 'hover:bg-[#ccc] hover:duration-700'} flex gap-2 items-center`}><IoFastFoodOutline />Thực Đơn</NavLink>
           <NavLink to='/library' className={({ isActive }) => `p-2 rounded-md ${isActive ? 'bg-white shadow-md' : 'hover:bg-[#ccc] hover:duration-700'} flex gap-2 items-center`}><CiImageOn />Hình Ảnh</NavLink>
+          <NavLink to={`/profile/${userInfo?._id}`} className={({ isActive }) => `p-2 rounded-md ${isActive ? 'bg-white shadow-md' : 'hover:bg-[#ccc] hover:duration-700'} flex gap-2 items-center`}><CiImageOn />Cá Nhân</NavLink>
         </ul>
         {/* Info Account */}
         <div className='infoAccount font-thin absolute bottom-10 left-2 w-[95%]'>

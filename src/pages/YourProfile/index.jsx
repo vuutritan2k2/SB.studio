@@ -1,0 +1,41 @@
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router'
+import { useGetGalleryById } from '../../services/galleryService'
+import CardImage from '../../components/CardImage'
+
+const YourProfilePage = () => {
+    const userId = useParams().id
+    const { galleryList, loadingGalleryList } = useGetGalleryById(userId)
+    const [userInfo, setUserInfo] = useState(null)
+
+    useEffect(() => {
+        if (galleryList && galleryList.length > 0) {
+            setUserInfo(galleryList[0].userId)
+        }
+    }, [galleryList])
+
+    return (
+        <section className='!my-5 container'>
+            <div className='w-full relative bg-[#f1f1f1] rounded-t-2xl'>
+                <img className='w-full h-40 md:h-60 xl:h-100 max-h-100 object-cover rounded-t-2xl' src={userInfo?.avatar} />
+                <div className='backdrop-blur absolute top-0 w-full h-40 md:h-60 xl:h-100 left-0 rounded-t-2xl'></div>
+                <div className='userInfo flex flex-col gap-3 items-center p-4 absolute bottom-10'>
+                    <div className='avatar w-24 h-24'>
+                        <img className='rounded-full border-3 border-white' src={userInfo?.avatar} />
+                    </div>
+                </div>
+                <div className='py-5 px-2'>
+                    <p className='font-bold text-[20px]'>{userInfo?.name}</p>
+                </div>
+            </div>
+
+            <div className='grid grid-cols-2 xl:grid-cols-5 gap-3 my-5'>
+                {Array.isArray(galleryList) && galleryList.length > 0 && galleryList.map((item) => (
+                    <CardImage key={item._id} image={item} />
+                ))}
+            </div>
+        </section>
+    )
+}
+
+export default YourProfilePage

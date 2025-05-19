@@ -47,7 +47,7 @@ export function useCreateGallery() {
 }
 
 
-// API: Lấy tất cả sản phẩm
+// API: Lấy tất cả hình ảnh
 const getGallery = async () => {
   const response = await axiosClient.get(`/api/gallery/all`);
   return response.data.galleries;
@@ -58,6 +58,27 @@ export const useGetGallery = () => {
   const { data, isLoading: loadingGalleryList, refetch } = useQuery({
     queryKey: ['galleryList'],
     queryFn: () => getGallery(),
+    keepPreviousData: true,
+  });
+
+  return {
+    galleryList: data,
+    loadingGalleryList,
+    refetch
+  };
+};
+
+// API: Lấy tất cả hình ảnh của người dùng hiện tại
+const getGalleryById = async (userId) => {
+  const response = await axiosClient.get(`/api/gallery/${userId}`);
+  return response.data.galleries;
+};
+
+// Hook: Lấy tất cả hình của người dùng hiện tại
+export const useGetGalleryById = (userId) => {
+  const { data, isLoading: loadingGalleryList, refetch } = useQuery({
+    queryKey: ['galleryList'],
+    queryFn: () => getGalleryById(userId),
     keepPreviousData: true,
   });
 

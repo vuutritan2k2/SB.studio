@@ -7,6 +7,8 @@ import LoginPage from './pages/Login'
 import { useEffect, useState } from 'react'
 import LibraryPage from './pages/LibraryPage'
 import useZustand from './zustand/useZustand'
+import MyProfilePage from './pages/MyProfile'
+import YourProfilePage from './pages/YourProfile'
 
 function App() {
   const nagative = useNavigate()
@@ -29,6 +31,8 @@ function App() {
       <Route path="/login" element={<LoginPage />} />
       <Route path="/food" element={<MainLayout><FoodPage /></MainLayout>} />
       <Route path="/library" element={<MainLayout><LibraryPage /></MainLayout>} />
+      <Route path="/me" element={<MainLayout><MyProfilePage /></MainLayout>} />
+      <Route path="/profile/:id" element={<MainLayout><YourProfilePage /></MainLayout>} />
     </Routes>
   )
 }
