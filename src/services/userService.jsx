@@ -10,7 +10,7 @@ export const login = async (values) => {
   const response = await axiosClient.post(`/api/user/login`, values, {
     withCredentials: true,
   });
-  return response.data.user;
+  return response.data;
 };
 
 // Hook đăng nhập
@@ -23,7 +23,7 @@ export function useLogin() {
     mutationFn: login,
     onSuccess: (data) => {
       localStorage.setItem("accesstoken", data.accesstoken)
-      getInfo(data)
+      getInfo(data.user)
       toast.success('Đăng nhập thành công !', {
         position: 'top-center',
         autoClose: 3000,
