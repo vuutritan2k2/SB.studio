@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import { IoCloudUploadOutline } from "react-icons/io5";
 import useZustand from '../../zustand/useZustand';
-import axiosClient from '../../apis/axiosClient';
-import { useGetGallery } from '../../services/galleryService';
+import { useCreateGallery, useGetGallery } from '../../services/galleryService';
 
 function UploadGalleryForm() {
     const userId = useZustand((state) => state.userInfo?._id);
     const [title, setTitle] = useState('');
     const [image, setImage] = useState(null);
-    const [message, setMessage] = useState('');
+    const [previewUrl, setPreviewUrl] = useState(null);
 
-    const { refetch } = useGetGallery()
+    const { mutate: createImage, isPending, isSuccess } = useCreateGallery()
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -20,45 +19,59 @@ function UploadGalleryForm() {
         formData.append('userId', userId);
         formData.append('image', image); // 'file' phải trùng với tên dùng trong middleware multer
 
-        try {
-            const res = await axiosClient.post('/api/gallery/createImage', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-            });
-
-            setMessage('Tải ảnh thành công!');
-            refetch()
-        } catch (err) {
-            setMessage('Tải ảnh thất bại: ' + (err.response?.data?.message || err.message));
-        }
+        createImage(formData)
+        setImage(null)
+        setPreviewUrl(null)
     };
 
     return (
-        <div className="max-w-md mx-auto mt-10 p-4 border rounded shadow">
+        <div className="max-w-md mx-auto p-4 border border-[#ccc] rounded">
             <h2 className="text-xl font-semibold mb-4">Tải ảnh lên</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
-                <input
-                    type="text"
-                    placeholder="Tiêu đề ảnh"
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                    className="w-full p-2 border rounded"
-                />
-                <input
-                    type="file"
-                    accept="image/*"
-                    onChange={(e) => setImage(e.target.files[0])}
-                    className="w-full"
-                    required
-                />
+                <div className='w-full relative bg-[#f1f1f1] text-[16px] place-items-center p-4 rounded-md'>
+                    <IoCloudUploadOutline />
+                    <p>Nhấp dô để chọn ảnh</p>
+                    <input
+                        type="file"
+                        accept="image/*"
+                        onChange={(e) => {
+                            const file = e.target.files[0];
+                            setImage(file);
+                            if (file) {
+                                setPreviewUrl(URL.createObjectURL(file));
+                            } else {
+                                setPreviewUrl(null);
+                            }
+                        }}
+                        className="w-full h-full opacity-0 cursor-pointer absolute top-0 left-0"
+                        required
+                    />
+                </div>
+                {previewUrl && (
+                    <>
+                        <div className='flex justify-center bg-[#f1f1f1] rounded-md'>
+                            <img
+                                src={previewUrl}
+                                alt="Xem trước ảnh"
+                                className="w-64 h-64 object-cover"
+                            />
+                        </div>
+                        <input
+                            type="text"
+                            placeholder="Tiêu đề ảnh"
+                            value={title}
+                            onChange={(e) => setTitle(e.target.value)}
+                            className="input w-full"
+                        />
+                    </>
+                )}
+
                 <button
                     type="submit"
-                    className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
+                    className="btn w-full"
                 >
-                    Upload
+                    {isPending ? 'Đang tải' : 'Đăng Ảnh'}
                 </button>
-                {message && <p className="text-center mt-2 text-sm">{message}</p>}
             </form>
         </div>
     );

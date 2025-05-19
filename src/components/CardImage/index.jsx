@@ -19,9 +19,6 @@ const CardImage = ({ image }) => {
           <p className='text-white'>{image.title}</p>
         </div>
       </div>
-      <div className='flex justify-center my-5'>
-        <button className='btn rounded-full !py-5'><LuHeart /></button>
-      </div>
     </div>
   )
 }

@@ -1,5 +1,51 @@
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import axiosClient from "../apis/axiosClient";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+// API: Thêm ảnh mới
+const createGallery = async (formData) => {
+  const response = await axiosClient.post(`/api/gallery/createImage`, formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    }
+  })
+  return response
+}
+
+// Hook đăng nhập
+export function useCreateGallery() {
+  const { refetch : refetchAllGallery } = useGetGallery()
+
+  return useMutation({
+    mutationKey: ['createGallery'],
+    mutationFn: createGallery,
+    onSuccess: (data) => {
+      refetchAllGallery()
+      toast.success('Đăng ảnh thành công !', {
+        position: 'top-center',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: 'colored',
+      });
+    },
+    onError: (error) => {
+      toast.error(error.response?.data?.message || 'Đăng ảnh thất bại !', {
+        position: 'top-center',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: 'colored',
+      });
+    },
+  });
+}
+
 
 // API: Lấy tất cả sản phẩm
 const getGallery = async () => {

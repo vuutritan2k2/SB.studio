@@ -26,18 +26,20 @@ const SlideBar = () => {
           <NavLink to='/library' className={({ isActive }) => `p-2 rounded-md ${isActive ? 'bg-white shadow-md' : 'hover:bg-[#ccc] hover:duration-700'} flex gap-2 items-center`}><CiImageOn />Hình Ảnh</NavLink>
         </ul>
         {/* Info Account */}
-        <div className='infoAccount font-thin absolute bottom-10 left-2 flex gap-3 items-center'>
-          <div className="avatar">
-            <div className="w-12 rounded-full">
-              <img src={userInfo?.avatar} />
+        <div className='infoAccount font-thin absolute bottom-10 left-2 w-[95%]'>
+          <div className='part1 flex gap-3'>
+            <div className="avatar">
+              <div className="w-12 rounded-full">
+                <img src={userInfo?.avatar} />
+              </div>
+            </div>
+            <div className="div">
+              <p>{userInfo?.name}</p>
+              <p>{userInfo?.phone}</p>
             </div>
           </div>
-          <div className="div">
-            <p>{userInfo?.name}</p>
-            <p>{userInfo?.phone}</p>
-          </div>
-          <div className="div">
-            <button className="btn" onClick={() => {
+          <div className="part2 mt-5">
+            <button className="btn w-full" onClick={() => {
               localStorage.clear(); // hoặc localStorage.removeItem('key') nếu chỉ muốn xóa 1 mục cụ thể
               window.location.reload(); // reload lại trang
             }}>Đăng Xuất</button>

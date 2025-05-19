@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 import { useLogin } from '../../services/userService';
 
 const LoginPage = () => {
-    const { mutate: login } = useLogin()
+    const { mutate: login, isPending } = useLogin()
 
     const formik = useFormik({
         initialValues: {
@@ -42,7 +42,9 @@ const LoginPage = () => {
                     onChange={formik.handleChange}
                 />
 
-                <button type="submit" className="btn btn-neutral mt-4">Đăng Nhập</button>
+                <button type="submit" className="btn btn-neutral mt-4">
+                    {isPending ? 'Đang Đăng Nhập...' : 'Đăng Nhập'}
+                </button>
             </form>
         </section>
     )
