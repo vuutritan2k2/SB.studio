@@ -1,32 +1,35 @@
 import React, { useState } from 'react';
 import { IoCloudUploadOutline } from "react-icons/io5";
-import useZustand from '../../zustand/useZustand';
-import { useCreateGallery } from '../../services/galleryService';
+import { useAddFood } from '../../services/foodService';
 
-function UploadGalleryForm() {
-    const userId = useZustand((state) => state.userInfo?._id);
-    const [title, setTitle] = useState('');
+function UploadFoodForm() {
+    const [foodName, setFoodName] = useState('');
+    const [price, setPrice] = useState('');
+    const [address, setAddress] = useState('');
+    const [description, setDescription] = useState('');
     const [image, setImage] = useState(null);
     const [previewUrl, setPreviewUrl] = useState(null);
 
-    const { mutate: createImage, isPending, isSuccess } = useCreateGallery()
+    const { mutate: createFood, isPending } = useAddFood()
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         const formData = new FormData();
-        formData.append('title', title);
-        formData.append('userId', userId);
+        formData.append('foodName', foodName);
+        formData.append('price', price);
+        formData.append('address', address);
+        formData.append('description', description);
         formData.append('image', image); // 'file' phải trùng với tên dùng trong middleware multer
 
-        createImage(formData)
+        createFood(formData)
         setImage(null)
         setPreviewUrl(null)
     };
 
     return (
         <div className="max-w-md mx-auto p-4 border border-[#ccc] rounded">
-            <h2 className="text-xl font-semibold mb-4">Tải ảnh lên</h2>
+            <h2 className="text-xl font-semibold mb-4">Đăng Món Ăn</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
                 <div className='w-full relative bg-[#f1f1f1] text-[16px] place-items-center p-4 rounded-md'>
                     <IoCloudUploadOutline />
@@ -58,9 +61,33 @@ function UploadGalleryForm() {
                         </div>
                         <input
                             type="text"
-                            placeholder="Tiêu đề ảnh"
-                            value={title}
-                            onChange={(e) => setTitle(e.target.value)}
+                            placeholder="Tên món"
+                            value={foodName}
+                            onChange={(e) => setFoodName(e.target.value)}
+                            className="input w-full"
+                            required
+                        />
+                        <input
+                            type="text"
+                            placeholder="Giá thành"
+                            value={price}
+                            onChange={(e) => setPrice(e.target.value)}
+                            className="input w-full"
+                            required
+                        />
+                        <input
+                            type="text"
+                            placeholder="Địa chỉ"
+                            value={address}
+                            onChange={(e) => setAddress(e.target.value)}
+                            className="input w-full"
+                            required
+                        />
+                        <input
+                            type="text"
+                            placeholder="Mô tả"
+                            value={description}
+                            onChange={(e) => setDescription(e.target.value)}
                             className="input w-full"
                         />
                     </>
@@ -70,11 +97,11 @@ function UploadGalleryForm() {
                     type="submit"
                     className="btn w-full"
                 >
-                    {isPending ? 'Đang tải' : 'Đăng Ảnh'}
+                    {isPending ? 'Đang Đăng Tải Món...' : 'Đăng Món'}
                 </button>
             </form>
         </div>
     );
 }
 
-export default UploadGalleryForm;
+export default UploadFoodForm;

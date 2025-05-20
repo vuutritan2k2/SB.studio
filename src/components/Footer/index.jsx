@@ -3,13 +3,7 @@ import React from 'react'
 const Footer = () => {
     return (
         <footer className="footer footer-horizontal footer-center bg-base-200 text-base-content rounded p-10">
-            <nav className="grid grid-flow-col gap-4">
-                <a className="link link-hover">About us</a>
-                <a className="link link-hover">Contact</a>
-                <a className="link link-hover">Jobs</a>
-                <a className="link link-hover">Press kit</a>
-            </nav>
-            <nav>
+            {/* <nav>
                 <div className="grid grid-flow-col gap-4">
                     <a>
                         <svg
@@ -33,7 +27,7 @@ const Footer = () => {
                                 d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
                         </svg>
                     </a>
-                    <a>
+                    <a href='https://www.instagram.com/sunben.stu/#'>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="24"
@@ -45,9 +39,9 @@ const Footer = () => {
                         </svg>
                     </a>
                 </div>
-            </nav>
+            </nav> */}
             <aside>
-                <p>Copyright © {new Date().getFullYear()} - All right reserved by ACME Industries Ltd</p>
+                <p>Copyright © {new Date().getFullYear()} - SB.Studio</p>
             </aside>
         </footer>
     )
