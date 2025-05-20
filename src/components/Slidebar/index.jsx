@@ -24,10 +24,10 @@ const SlideBar = () => {
           <NavLink to='/' className={({ isActive }) => `p-2 rounded-md ${isActive ? 'bg-white shadow-md' : 'hover:bg-[#ccc] hover:duration-700'}  flex gap-2 items-center`}><FaHome />Trang Chủ</NavLink>
           <NavLink to='/food' className={({ isActive }) => `p-2 rounded-md ${isActive ? 'bg-white shadow-md' : 'hover:bg-[#ccc] hover:duration-700'} flex gap-2 items-center`}><IoFastFoodOutline />Thực Đơn</NavLink>
           <NavLink to='/library' className={({ isActive }) => `p-2 rounded-md ${isActive ? 'bg-white shadow-md' : 'hover:bg-[#ccc] hover:duration-700'} flex gap-2 items-center`}><CiImageOn />Hình Ảnh</NavLink>
-          <NavLink to={`/profile/${userInfo?._id}`} className={({ isActive }) => `p-2 rounded-md ${isActive ? 'bg-white shadow-md' : 'hover:bg-[#ccc] hover:duration-700'} flex gap-2 items-center`}><CiImageOn />Cá Nhân</NavLink>
         </ul>
         {/* Info Account */}
         <div className='infoAccount font-thin absolute bottom-10 left-2 w-[95%]'>
+          <NavLink to={`/profile/${userInfo?._id}`}>
           <div className='part1 flex gap-3'>
             <div className="avatar">
               <div className="w-12 rounded-full">
@@ -39,6 +39,7 @@ const SlideBar = () => {
               <p>{userInfo?.phone}</p>
             </div>
           </div>
+          </NavLink>
           <div className="part2 mt-5">
             <button className="btn w-full" onClick={() => {
               localStorage.clear(); // hoặc localStorage.removeItem('key') nếu chỉ muốn xóa 1 mục cụ thể
