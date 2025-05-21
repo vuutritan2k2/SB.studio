@@ -22,10 +22,14 @@ const FoodPage = () => {
             </div>
             {/* Đăng món mới */}
             <div className='my-5'><UploadFoodForm /></div>
-
+            {/* Tab List Món Ăn */}
+            <div className='flex gap-3 w-full justify-center'>
+                <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-lg">Chặt bần</button>
+                <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-lg">Luộc chúi</button>
+            </div>
             {/* Tất cả món */}
             <div className='flex my-5 justify-center'>
-                <p className='font-bold'>ALL THỰC ĐƠN</p>
+                <p className='font-bold'>THỰC ĐƠN</p>
             </div>
             <div className='grid grid-cols-2 xl:grid-cols-4 my-5 gap-4'>
                 {foodList && foodList.length > 0 ? (
